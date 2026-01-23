@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_table_form" model="ir.ui.view">
+        <field name="name">project.table.form</field>
+        <field name="model">mini.project</field>
+        <field name="arch" type="xml">
+            <form string="project table form">
+               <header>
+                   <h3>project table record</h3>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="p_name"/>
+                        <field name="employee_ids" />
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+        <record id="project_table_tree" model="ir.ui.view">
+        <field name="name">project.table.tree</field>
+        <field name="model">mini.project</field>
+        <field name="arch" type="xml">
+            <tree string="project table tree">
+                        <field name="p_name"/>
+                        <field name="employee_ids" />
+            </tree>
+        </field>
+    </record>
+</odoo>

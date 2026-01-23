@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_tables_root" name="Tables" sequence="1"/>
+    <menuitem id="menu_company_table_list"
+          parent="menu_tables_root"
+          name="Company Table"
+          action="action_company_table"
+          sequence="2"
+    />
+    <menuitem id="menu_employee_table_list"
+          parent="menu_tables_root"
+          name="Employee Table"
+          action="action_employee_table"
+          sequence="3"
+    />
+    <menuitem id="menu_project_table_list"
+          parent="menu_tables_root"
+          name="Project Table"
+          action="action_project_table"
+          sequence="4"
+    />
+    <menuitem id="menu_employee_table_pivot_view"
+          parent="menu_tables_root"
+          name="Employee Table pivot view"
+          action="action_employee_table_pivot_view"
+          sequence="5"
+    />
+     <menuitem id="menu_employee_table_graph_view"
+          parent="menu_tables_root"
+          name="Employee Table graph view"
+          action="action_employee_table_graph_view"
+          sequence="6"
+    />
+    <menuitem id="menu_employee_table_kanban_view"
+          parent="menu_tables_root"
+          name="Employee Table kanban view"
+          action="action_employee_kanban_view"
+          sequence="7"
+    />
+
+     <menuitem id="menu_events_table_calender_view"
+          parent="menu_tables_root"
+          name="Events Table calender view"
+          action="action_events_calender_view"
+          sequence="8"
+    />
+    <menuitem id="menu_student_table_hierarchical_view"
+          parent="menu_tables_root"
+          name="student Table hierarchical view"
+          action="action_student_hierarchical_view"
+          sequence="9"
+    />
+
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mini_task_tree" model="ir.ui.view">
+        <field name="name">mini.task.tree</field>
+        <field name="model">mini.task</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="deadline"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mini_task_form" model="ir.ui.view">
+        <field name="name">mini.task.form</field>
+        <field name="model">mini.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="user_id"/>
+                        <field name="deadline"/>
+                        <field name="company_id"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mini_task" model="ir.actions.act_window">
+        <field name="name">Mini Tasks</field>
+        <field name="res_model">mini.task</field>
+        <field name="view_mode">activity,tree,form</field>
+    </record>
+
+    <menuitem id="menu_mini_activity_root" name="Mini Activity"/>
+    <menuitem id="menu_mini_task"
+              name="Tasks"
+              parent="menu_mini_activity_root"
+              action="action_mini_task"/>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="student_table_form" model="ir.ui.view">
+        <field name="name">student.table.form</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <form string="student table form">
+               <header>
+                   <h3>student table record</h3>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<record id="student_view_hierarchy" model="ir.ui.view">
+   <field name="name">student.view.hierarchy</field>
+   <field name="model">student.table</field>
+   <field name="arch" type="xml">
+       <hierarchy child_field="child_ids"
+                  draggable="1">
+           <field name="name"/>
+           <templates>
+               <t t-name="hierarchy-box">
+                   <div t-attf-class="o_hierarchy_node_header d-flex justify-content-center pb-4"
+                        t-att-title="parent_id">
+                   </div>
+                   <div class="o_hierarchy_node_body d-flex flex-column text-center">
+                       <div class="w-100 position-relative">
+                           <field class="fw-bold" name="name"/>
+                           <br/>
+                       </div>
+                   </div>
+               </t>
+           </templates>
+       </hierarchy>
+   </field>
+</record>
+</odoo>

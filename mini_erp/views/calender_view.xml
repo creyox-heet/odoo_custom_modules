@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_events_form" model="ir.ui.view">
+        <field name="name">events.table.form</field>
+        <field name="model">events.table</field>
+        <field name="arch" type="xml">
+            <form string="calender table form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="delay"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_events_calendar" model="ir.ui.view">
+   <field name="name">view.events.calendar</field>
+   <field name="model">events.table</field>
+   <field name="arch" type="xml">
+       <calendar string="events Calendar" date_start="start_date"
+                 date_stop="end_date"
+                 date_delay="delay">
+           <field name="name"/>
+       </calendar>
+   </field>
+</record>
+
+</odoo>

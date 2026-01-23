@@ -1,0 +1,41 @@
+<odoo>
+
+    <record id="mini_task_tree" model="ir.ui.view">
+        <field name="name">mini.task.tree</field>
+        <field name="model">mini.task</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="priority"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mini_task_form" model="ir.ui.view">
+        <field name="name">mini.task.form</field>
+        <field name="model">mini.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="priority"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="mini_task_action" model="ir.actions.act_window">
+        <field name="name">Mini Tasks</field>
+        <field name="res_model">mini.task</field>
+        <field name="view_mode">tree,form,activity</field>
+    </record>
+
+    <menuitem id="mini_task_root" name="Mini Activity Demo"/>
+    <menuitem id="mini_task_menu"
+              name="Tasks"
+              parent="mini_task_root"
+              action="mini_task_action"/>
+</odoo>

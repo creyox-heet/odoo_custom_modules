@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="student_leave_tree_view" model="ir.ui.view">
+    <field name="name">student.leave.tree</field>
+    <field name="model">student.leave</field>
+    <field name="arch" type="xml">
+        <tree string="Student Leaves">
+            <field name="student_id"/>
+            <field name="date"/>
+            <field name="reason"/>
+        </tree>
+    </field>
+</record>
+<record id="student_leave_form_view" model="ir.ui.view">
+    <field name="name">student.leave.form</field>
+    <field name="model">student.leave</field>
+    <field name="arch" type="xml">
+        <form string="Student Leave">
+            <sheet>
+                <group>
+                    <field name="student_id"/>
+                    <field name="date"/>
+                    <field name="reason"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+<record id="action_student_leave" model="ir.actions.act_window">
+    <field name="name">Student Leaves</field>
+    <field name="res_model">student.leave</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="menu_student_root" name="Students"/>
+
+<menuitem id="menu_student_leave"
+          name="Student Leaves"
+          parent="menu_student_root"
+          action="action_student_leave"/>
+
+</odoo>

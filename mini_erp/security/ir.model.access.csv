@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mini_company,access.mini.company,model_mini_company,,1,1,1,1
+access_mini_employee,access.mini.employee,model_mini_employee,,1,1,1,1
+access_mini_project,access.mini.project,model_mini_project,,1,1,1,1
+access_events_table,access.events.table,model_events_table,,1,1,1,1
+access_student_table,access.student.table,model_student_table,,1,1,1,1

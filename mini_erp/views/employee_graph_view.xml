@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="employee_graph_view" model="ir.ui.view">
+   <field name="name">employee.graph.view</field>
+   <field name="model">mini.company</field>
+   <field name="arch" type="xml">
+       <graph string="Employee Statistics" type="bar">
+           <field name="employee_ids" type="measure"/>
+
+           <field name="name" type="row"/><x></x>
+       </graph>
+   </field>
+   </record>
+
+</odoo>

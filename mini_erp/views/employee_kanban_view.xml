@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="employee_view_kanban" model="ir.ui.view">
+   <field name="name">employee.view.kanban</field>
+   <field name="model">mini.employee</field>
+   <field name="arch" type="xml">
+       <kanban class="o_kanban_view" string="employee Progress">
+            <field name="name"/>
+                <field name="age"/>
+                <field name="company_id"/>
+           <templates>
+               <t t-name="kanban-box">
+                   <div t-attf-class="oe_kanban_global_click">
+                       <div class="o_kanban_content">
+                           <strong>
+                               <div class="oe_kanban_title">
+                                   <field name="name"/>
+                               </div>
+                           </strong>
+                           <div>Age:
+                               <field name="age"/>
+                            </div>
+                           <div>Company:
+                               <field name="company_id"/>
+                            </div>
+                       </div>
+                   </div>
+               </t>
+           </templates>
+       </kanban>
+   </field>
+</record>
+
+
+</odoo>

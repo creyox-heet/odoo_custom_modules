@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mini_task,access.mini.task,model_mini_task,,1,1,1,1
+
