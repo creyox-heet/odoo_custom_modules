@@ -4,3 +4,4 @@ class MyAbstractModel(models.AbstractModel):
     _description = 'My Abstract Model'
 
     date = fields.Date(string="Date")
+

@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models,api
 
 class Student(models.Model):
     _name = "student.student"
@@ -19,3 +19,9 @@ class Student(models.Model):
             "target": "new",
             "context": {"default_student_id": self.id},
         }
+
+    @api.onchange("phone")
+    def _onchange_phone(self):
+        if self.phone and 10 > len(self.phone):
+            return {"warning":{"title":"Invalid","message":"Phone Number must be less than 10"}}
+        return None
