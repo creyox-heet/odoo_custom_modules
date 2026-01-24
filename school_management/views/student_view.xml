@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<record id="student_tree_view" model="ir.ui.view">
+<record id="student_mark_tree_view" model="ir.ui.view">
     <field name="name">student.student.tree</field>
     <field name="model">student.student</field>
     <field name="arch" type="xml">
@@ -28,14 +28,14 @@
                             <field name="email"/>
                             <field name="phone"/>
                             <field name="date"/>
-
                 </group>
             </sheet>
         </form>
     </field>
 </record>
 
-<menuitem id="menu_student_root" name="Students"/><record id="action_student" model="ir.actions.act_window">
+<menuitem id="menu_student_root" name="Students"/>
+    <record id="action_student" model="ir.actions.act_window">
     <field name="name">Students</field>
     <field name="res_model">student.student</field>
     <field name="view_mode">tree,form</field>

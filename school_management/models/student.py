@@ -9,7 +9,7 @@ class Student(models.Model):
     phone = fields.Char(string="Phone Number")
     email = fields.Char(string="Email", required=True)
     leave_ids = fields.One2many('student.leave', 'student_id', string="Leaves")
-
+    total_stud = fields.Integer(string="Total Students")
     def action_leave_wizard(self):
         return {
             "type": "ir.actions.act_window",
@@ -17,7 +17,7 @@ class Student(models.Model):
             "res_model": "student.leave.wizard",
             "view_mode": "form",
             "target": "new",
-            "context": {"default_student_id": self.id},
+            "context": {"default_student_id": self.id}
         }
 
     @api.onchange("phone")
