@@ -11,7 +11,7 @@
         </tree>
     </field>
 </record>
-<record id="student_leave_form_view" model="ir.ui.view">
+<!--<record id="student_leave_form_view" model="ir.ui.view">
     <field name="name">student.leave.form</field>
     <field name="model">student.leave</field>
     <field name="arch" type="xml">
@@ -25,11 +25,11 @@
             </sheet>
         </form>
     </field>
-</record>
+</record>-->
 <record id="action_student_leave" model="ir.actions.act_window">
     <field name="name">Student Leaves</field>
     <field name="res_model">student.leave</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree</field>
 </record>
 <menuitem id="menu_student_root" name="Students"/>
 

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_student,access.student.student,model_student_student,,1,1,1,1
+access_student_leave,access.student.leave,model_student_leave,,1,1,1,1
+access_student_leave_wizard,access.student.leave.wizard,model_student_leave_wizard,,1,1,1,1
