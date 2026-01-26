@@ -25,3 +25,8 @@ class Student(models.Model):
         if self.phone and 10 > len(self.phone):
             return {"warning":{"title":"Invalid","message":"Phone Number must be less than 10"}}
         return None
+
+    def get_student_name(self):
+        stud_env = self.env["student.student"].search([])
+        name_list = stud_env.mapped("name")
+        print(name_list)

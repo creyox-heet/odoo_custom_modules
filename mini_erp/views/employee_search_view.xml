@@ -7,6 +7,9 @@
             <search string="Search Employee">
                 <field name="name"/>
                 <field name="age"/>
+                <filter string="id greater than 2 " name="id" domain="[('id', '>', 2)]"/>
+                <group expand="1" string="group_by">
+                <filter string="age group by" name="age_groupby" context="{'group_by': 'age'}"/>                </group>
             </search>
         </field>
     </record>
