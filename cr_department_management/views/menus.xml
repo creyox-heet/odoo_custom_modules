@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <menuitem id="department_management_root" name="Department Management" sequence="1"/>
+    <menuitem id="menu_student_table"
+          parent="department_management_root"
+          name="Student Table"
+          action="action_student_student_table"
+          sequence="2"
+    />
+    <menuitem id="menu_employee_table"
+          parent="department_management_root"
+          name="Employee Table"
+          action="action_employee_employee_table"
+          sequence="3"
+    />
+    <menuitem id="menu_department_table"
+          parent="department_management_root"
+          name="Department Table"
+          action="action_department_department_table"
+          sequence="4"
+    />
+</odoo>

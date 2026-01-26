@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_department_department_tree" model="ir.ui.view">
+        <field name="name">department.department.tree</field>
+        <field name="model">department.department</field>
+        <field name="arch" type="xml">
+            <tree string="Departments" sample="1">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="no_of_students" sum="Total Students"/>
+                <field name="staff_ids" sum="staffs" widget="many2many_tags" />
+                <field name="hod_id" widget="many2one_avatar_user"/>
+                <field name="notes" />
+                <field name="student_ids" widget="many2many_tags" />
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_department_department_kanban" model="ir.ui.view">
+    <field name="name">department.department.kanban</field>
+    <field name="model">department.department</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="name"/>
+            <field name="code"/>
+            <field name="no_of_students"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <div class="oe_kanban_details">
+                            <strong class="o_kanban_record_title">
+                                <field name="name"/>
+                                <field name="code"/>
+                            </strong>
+                            <div>
+                                <strong>Students: </strong> <field name="no_of_students"/>
+                            </div>
+                            <div>
+                                <strong>HOD: </strong> <field name="hod_id"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+    <record id="view_department_department_form" model="ir.ui.view">
+    <field name="name">department.department.form</field>
+    <field name="model">department.department</field>
+    <field name="arch" type="xml">
+        <form string="Department">
+            <sheet>
+                <div class="oe_title">
+                    <label for="name"/>
+                    <h1>
+                        <field name="name" placeholder="ex. Science Department"/>
+                    </h1>
+                </div>
+                <group>
+                    <group string="Basic Information">
+                        <field name="code"/>
+                        <field name="hod_id"/>
+                        <field name="active" widget="boolean_toggle"/>
+                        <field name="no_of_students"/>
+                    </group>
+                <group>
+                    <field name="staff_ids" widget="many2many_tags" />
+                    <field name="student_ids" widget="many2many_tags"/>
+                    <field name="notes" placeholder="Enter department notes ..."/>
+                </group>
+                </group>
+            </sheet>
+                        <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                        </div>
+
+        </form>
+    </field>
+</record>
+    <record id="view_department_department_pivot" model="ir.ui.view">
+    <field name="name">department.department.pivot</field>
+    <field name="model">department.department</field>
+    <field name="arch" type="xml">
+        <pivot string="Department pivot view">
+            <field name="name" type="row"/>
+            <field name="no_of_students" type="col"/>
+        </pivot>
+    </field>
+</record>
+
+    <record model="ir.ui.view" id="view_department_department_graph">
+        <field name="name">department.department.graph</field>
+        <field name="model">department.department</field>
+        <field name="type">graph</field>
+        <field name="arch" type="xml">
+            <graph string="Example" type="bar">
+                <field name="name"/>
+                <field name="no_of_students"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

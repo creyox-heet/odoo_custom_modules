@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_employee_tree" model="ir.ui.view">
+        <field name="name">employee.employee.tree</field>
+        <field name="model">employee.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Students">
+                <field name="name"/>
+                <field name="image"/>
+                <field name="street"/>
+                <field name="city"/>
+                <field name="zip"/>
+                <field name="state_id"/>
+                <field name="country_id"/>
+                <field name="birthdate"/>
+                <field name="age"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="barcode"/>
+                <field name="job_time"/>
+                <field name="notes"/>
+                <field name="remarks"/>
+                <field name="is_hod"  widget="boolean_toggle"/>
+                <field name="active" widget="boolean_toggle" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_employee_employee_form" model="ir.ui.view">
+    <field name="name">employee.employee.form</field>
+    <field name="model">employee.employee</field>
+    <field name="arch" type="xml">
+        <form string="Employee">
+            <sheet>
+                <field name="image" widget="image" />
+                <div>
+                    <h1>
+                        <field name="name" placeholder="Employee Name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group string="Professional Details">
+                        <field name="job_time" widget="radio" />
+                        <field name="email" widget="email"/>
+                        <field name="mobile" widget="phone"/>
+                        <field name="barcode"/>
+                    </group>
+                    <group string="Personal info..">
+                        <field name="birthdate"/>
+                        <field name="age"/>
+                        <field name="is_hod" widget="boolean_toggle"/>
+                        <field name="active" widget="boolean_toggle"/>
+                    </group>
+                </group>
+                        <group>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..."/>
+                                <field name="city" placeholder="City" />
+                                <field name="state_id" placeholder="State" />
+                                <field name="zip" placeholder="ZIP" />
+                                <field name="country_id" placeholder="Country"/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="notes" placeholder=" HTML notes..."/>
+                            <field name="remarks" placeholder=" remarks..."/>
+                        </group>
+            </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+        </form>
+    </field>
+</record>
+
+    <record id="view_employee_employee_kanban" model="ir.ui.view">
+    <field name="name">employee.employee.kanban</field>
+    <field name="model">employee.employee</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="id"/>
+            <field name="name"/>
+            <field name="image"/>
+            <field name="email"/>
+            <field name="job_time"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click ">
+                        <div class="o_kanban_image ">
+                            <field name="image" widget="image" />
+                        </div>
+                        <div class="oe_kanban_details">
+                            <strong class="o_kanban_record_title">
+                                <field name="name"/>
+                            </strong>
+                            <div>
+                                <field name="job_time"/>
+                            </div>
+                            <div>
+                                <field name="email"/>
+                            </div>
+                            <div>
+                                <field name="is_hod"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+</odoo>
