@@ -6,6 +6,7 @@
     <field name="arch" type="xml">
         <tree string="Student Leaves">
             <field name="student_id"/>
+            <field name="stud_email"/>
             <field name="date"/>
             <field name="reason"/>
         </tree>
