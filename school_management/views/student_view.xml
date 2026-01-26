@@ -25,7 +25,7 @@
         <form string="Student">
              <header>
             <button string="get names" type="object" name="get_student_name" class="oe_highlight" />
-
+                        <button string="get names in ascending order" type="object" name="get_student_name_sorted_order" class="oe_highlight" />
         </header>
             <sheet>
                 <group>

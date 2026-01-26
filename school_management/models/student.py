@@ -30,3 +30,9 @@ class Student(models.Model):
         stud_env = self.env["student.student"].search([])
         name_list = stud_env.mapped("name")
         print(name_list)
+
+    def get_student_name_sorted_order(self):
+        stud_env = self.env["student.student"].search([])
+        name_list = sorted(stud_env,key= lambda x : x.name)
+        for x in name_list:
+            print(x,"=",x.name)
