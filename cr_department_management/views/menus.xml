@@ -19,4 +19,10 @@
           action="action_department_department_table"
           sequence="4"
     />
+     <menuitem id="menu_department_conf"
+          parent="department_management_root"
+          name="Department Configuration"
+          action="action_department_conf_wizard"
+          sequence="5"
+     />
 </odoo>

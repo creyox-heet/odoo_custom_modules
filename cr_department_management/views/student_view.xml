@@ -18,6 +18,7 @@
                 <field name="email"/>
                 <field name="barcode"/>
                 <field name="department_id"/>
+                <field name="dept_code"/>
                 <field name="type" />
                 <field name="notes"/>
                 <field name="remarks"/>
@@ -46,8 +47,9 @@
                     <group string="Contact Details">
                         <field name="email" widget="email"/>
                         <field name="mobile" widget="phone"/>
-                        <field name="barcode"/>
+                        <field name="barcode" readonly="1" force_save="1"/>
                         <field name="department_id"/>
+                        <field name="dept_code" readonly="1"/>
                     </group>
                     <group string="Personal Info">
                         <field name="birthdate"/>
@@ -68,17 +70,21 @@
                         <group>
                             <group>
                                 <field name="is_cr" widget="boolean_toggle"/>
-                                <field name="no_of_votes"/>
+                                <field name="no_of_votes" invisible="not is_cr"
+                                required="is_cr"/>
                             </group>
                             <group>
-                                <field name="cr_start_date"/>
-                                <field name="cr_end_date"/>
+                                <field name="cr_start_date" invisible="not is_cr"
+                                required="is_cr" />
+                                <field name="cr_end_date" invisible="not is_cr"
+                                    required="is_cr" />
                             </group>
                         </group>
                     <group>
-                        <field name="notes" placeholder=" HTML notes..."/>
+                        <field name="notes" placeholder=" HTML notes..." />
                         <field name="remarks" placeholder=" remarks..."/>
                     </group>
+
             </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
@@ -113,6 +119,7 @@
                             </strong>
                             <div>
                                 <field name="department_id"/>
+                                <field name="dept_code" readonly="1"/>
                             </div>
                             <div>
                                 <field name="email"/>

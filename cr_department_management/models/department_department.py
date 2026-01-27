@@ -12,10 +12,11 @@ class DepartmentDepartment(models.Model):
     code = fields.Char(string="Code",required=True)
     no_of_students = fields.Integer(string="Number of Students",compute="_compute_no_of_students",store=True)
     staff_ids = fields.Many2many('employee.employee',string="Staff Members")
-    hod_id = fields.Many2one('employee.employee',string="HOD")
-    student_ids = fields.One2many('student.student','department_id',string="Students")
+    hod_id = fields.Many2one('employee.employee',string="HOD",domain="[('is_hod', '=', True)]")
+    student_ids = fields.One2many('student.student','department_id',string="Students",domain="[('type', '=','internal')]")
     notes = fields.Html(string="Notes")
     active = fields.Boolean(string="Active", default=True)
+
 
     @api.depends("student_ids")
     def _compute_no_of_students(self):

@@ -42,7 +42,7 @@
                         <field name="job_time" widget="radio" />
                         <field name="email" widget="email"/>
                         <field name="mobile" widget="phone"/>
-                        <field name="barcode"/>
+                        <field name="barcode" readonly="1" force_save="1"/>
                     </group>
                     <group string="Personal info..">
                         <field name="birthdate"/>

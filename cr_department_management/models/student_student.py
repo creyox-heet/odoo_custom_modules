@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Creyox Technologies.
-
+from dateutil.relativedelta import relativedelta
 from odoo import models, fields,api
-
+import datetime
+from dateutil.relativedelta import relativedelta
 
 class StudentStudent(models.Model):
     _name = "student.student"
@@ -17,11 +18,12 @@ class StudentStudent(models.Model):
     state_id = fields.Many2one("res.country.state",string="State")
     country_id = fields.Many2one("res.country",string="Country")
     birthdate = fields.Date(string="Birthdate")
-    age = fields.Integer(string="Age")
+    age = fields.Integer(string="Age",readonly=True,compute="_compute_age",store=True)
     mobile = fields.Char(string="Mobile")
     email = fields.Char(string="Email")
-    barcode = fields.Char(string="Barcode",readonly=True)
+    barcode = fields.Char(string="Barcode")
     department_id = fields.Many2one("department.department",string="Department")
+    dept_code = fields.Char(related="department_id.code" , string="Dept Code")
     type = fields.Selection([("internal","Internal"),("external","External")],string="Type",default="internal")
     notes = fields.Html(string="Notes")
     remarks = fields.Text(string="Remarks")
@@ -36,3 +38,13 @@ class StudentStudent(models.Model):
         self.ensure_one()
         if self.mobile:
             self.barcode = self.mobile
+
+    @api.depends("birthdate")
+    def _compute_age(self):
+        for record in self:
+            if record.birthdate:
+                d1 = record.birthdate
+                d2 = datetime.date.today()
+                record.age = relativedelta(d2, d1).years
+            else:
+                record.age = 0
