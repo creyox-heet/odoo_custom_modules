@@ -8,6 +8,7 @@ class DepartmentDepartment(models.Model):
     _description = "Department"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+
     name = fields.Char(string="Name", required=True)
     code = fields.Char(string="Code",required=True)
     no_of_students = fields.Integer(string="Number of Students",compute="_compute_no_of_students",store=True)
@@ -20,7 +21,28 @@ class DepartmentDepartment(models.Model):
 
     @api.depends("student_ids")
     def _compute_no_of_students(self):
-        if self.student_ids:
-            self.no_of_students = len(self.student_ids)
+        for r in self:
+            self.no_of_students = len(r.student_ids)
 
+    def open_current_department_tree(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Students',
+            'view_mode': 'tree',
+            'target': 'new',
+            'res_model': 'department.department',
+            'domain': [('id', '=', self.id)],
+            'context': "{'create': False}"
+        }
+
+    def _compute_display_name(self):
+        for record in self:
+            record.display_name = f"{record.name}:{record.code}"
+
+    @api.model
+    def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None,order=None):
+        if name:
+            args = ['|',('name',operator,name), ('code', operator, name)]
+        return self._search(args, limit=limit, access_rights_uid=name_get_uid,order=order)
 

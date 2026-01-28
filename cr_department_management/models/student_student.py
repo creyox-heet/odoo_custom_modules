@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Creyox Technologies.
+from email.policy import default
+
 from dateutil.relativedelta import relativedelta
 from odoo import models, fields,api
 import datetime
@@ -9,6 +11,7 @@ class StudentStudent(models.Model):
     _name = "student.student"
     _description = "Student"
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    # _rec_name_search = ['department_id','dept_code']
 
     name = fields.Char(string="Name",required=True)
     image = fields.Binary(string="Image")
@@ -22,7 +25,8 @@ class StudentStudent(models.Model):
     mobile = fields.Char(string="Mobile")
     email = fields.Char(string="Email")
     barcode = fields.Char(string="Barcode")
-    department_id = fields.Many2one("department.department",string="Department")
+
+    department_id = fields.Many2one("department.department",string="Department",default="IT department")
     dept_code = fields.Char(related="department_id.code" , string="Dept Code")
     type = fields.Selection([("internal","Internal"),("external","External")],string="Type",default="internal")
     notes = fields.Html(string="Notes")
@@ -48,3 +52,8 @@ class StudentStudent(models.Model):
                 record.age = relativedelta(d2, d1).years
             else:
                 record.age = 0
+
+    @api.onchange("name")
+    def _default_first_department_id(self):
+        self.ensure_one()
+        self.department_id = self.env["department.department"].search([], order='id asc', limit=1)

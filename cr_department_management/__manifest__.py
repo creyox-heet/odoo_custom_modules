@@ -18,7 +18,6 @@
         "views/department_view.xml",
         "views/employee_view.xml",
         "views/student_view.xml",
-        "views/smart_button_of_students_view.xml",
         "views/menus.xml"
      ],
     "installable": True,
