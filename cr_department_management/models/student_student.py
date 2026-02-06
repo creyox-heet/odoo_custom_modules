@@ -68,3 +68,6 @@ class StudentStudent(models.Model):
                 'department_id': self.env["department.department"].search([],limit=1).id
             })
         return res
+
+    def print_name(self):
+        print("Heet Nagapara")
