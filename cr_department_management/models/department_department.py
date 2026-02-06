@@ -7,7 +7,10 @@ class DepartmentDepartment(models.Model):
     _name = "department.department"
     _description = "Department"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    # sequence = fields.char("Sequence", required=True,readonly=True,default=lambda self:_('New'))
+    sequence_code =  fields.Char('Sequence code', readonly=True,
+                                copy=False, default=lambda self: self.env[
+                                'ir.sequence'].next_by_code('department.department'))
+
     name = fields.Char(string="Name", required=True)
     code = fields.Char(string="Code",required=True)
     no_of_students = fields.Integer(string="Number of Students",compute="_compute_no_of_students",store=True)
