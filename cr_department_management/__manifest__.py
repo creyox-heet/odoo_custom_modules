@@ -10,7 +10,7 @@
     "license": "OPL-1",
     "version": "17.0.0.1",
     "description": "CR Department Management",
-    "depends": ["base","mail"],
+    "depends": ["base","mail","sale"],
     "data": [
         "security/ir.model.access.csv",
         "views/actions.xml",

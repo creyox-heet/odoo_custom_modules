@@ -19,9 +19,10 @@
         <field name="help">no employee</field>
     </record>
     <record id="action_department_conf_wizard" model="ir.actions.act_window">
-    <field name="name">Department Configuration</field>
-    <field name="res_model">department.conf</field>
-    <field name="view_mode">form</field>
-    <field name="target">new</field>
+        <field name="name">Department Configuration</field>
+        <field name="res_model">department.conf</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
     </record>
+
 </odoo>

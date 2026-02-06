@@ -25,4 +25,5 @@
           action="action_department_conf_wizard"
           sequence="5"
      />
+
 </odoo>

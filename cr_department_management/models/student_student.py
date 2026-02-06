@@ -26,7 +26,7 @@ class StudentStudent(models.Model):
     email = fields.Char(string="Email")
     barcode = fields.Char(string="Barcode")
 
-    department_id = fields.Many2one("department.department",string="Department",default="IT department")
+    department_id = fields.Many2one("department.department",string="Department")
     dept_code = fields.Char(related="department_id.code" , string="Dept Code")
     type = fields.Selection([("internal","Internal"),("external","External")],string="Type",default="internal")
     notes = fields.Html(string="Notes")
@@ -53,7 +53,18 @@ class StudentStudent(models.Model):
             else:
                 record.age = 0
 
-    @api.onchange("name")
-    def _default_first_department_id(self):
-        self.ensure_one()
-        self.department_id = self.env["department.department"].search([], order='id asc', limit=1)
+    # @api.onchange("name")
+    # def _default_first_department_id(self):
+    #     self.ensure_one()
+    #     self.department_id = self.env["department.department"].search([], order='id asc', limit=1)
+
+    @api.model
+    def default_get(self, fields_list):
+        print(fields_list)
+        res = super().default_get(fields_list)
+        print(res)
+        if 'department_id' not in res:
+            res.update({
+                'department_id': self.env["department.department"].search([],limit=1).id
+            })
+        return res
