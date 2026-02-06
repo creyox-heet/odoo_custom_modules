@@ -35,7 +35,7 @@ class StudentStudent(models.Model):
     cr_start_date = fields.Date(string="Start Date")
     cr_end_date = fields.Date(string="End Date")
     no_of_votes = fields.Integer(string="Number of Votes")
-    active = fields.Boolean(string="Active")
+    active = fields.Boolean(string="Active",default="True")
 
     @api.onchange("mobile")
     def _onchange_mobile(self):

@@ -13,6 +13,7 @@
     "depends": ["base","mail","sale"],
     "data": [
         "security/ir.model.access.csv",
+        "data/ir_actions_server.xml",
         "views/actions.xml",
         "views/department_conf_view.xml",
         "views/department_view.xml",
@@ -20,6 +21,9 @@
         "views/student_view.xml",
         "views/menus.xml"
      ],
+    "demo":[
+        "demo/demo_data.xml"
+    ],
     "installable": True,
     "application": True,
 }

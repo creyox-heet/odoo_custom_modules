@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 # Part of Creyox Technologies.
 
-from odoo import models , fields,api
+from odoo import models , fields,api,_
 
 class DepartmentDepartment(models.Model):
     _name = "department.department"
     _description = "Department"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-
-
+    # sequence = fields.char("Sequence", required=True,readonly=True,default=lambda self:_('New'))
     name = fields.Char(string="Name", required=True)
     code = fields.Char(string="Code",required=True)
     no_of_students = fields.Integer(string="Number of Students",compute="_compute_no_of_students",store=True)
@@ -33,7 +32,6 @@ class DepartmentDepartment(models.Model):
             'target': 'new',
             'res_model': 'department.department',
             'domain': [('id', '=', self.id)],
-            'context': "{'create': False}"
         }
 
     def _compute_display_name(self):
