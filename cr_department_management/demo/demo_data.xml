@@ -3,6 +3,13 @@
     <data noupdate="1">
         <record id="student_demo_data" model="student.student">
             <field name="name">Demo Student data</field>
+            <field name="state_id">1</field>
+        </record>
+        <record id="student_demo_data2" model="student.student">
+            <field name="name">Demo2 Student data</field>
+        </record>
+        <record id="student_demo_data3" model="student.student">
+            <field name="name">Demo3 Student data</field>
         </record>
     </data>
 </odoo>

@@ -28,6 +28,10 @@ class EmployeeEmployee(models.Model):
     is_hod = fields.Boolean(string="Is HOD?",default=True)
     active = fields.Boolean(string="Active", default=True)
 
+    _sql_constraints = [
+        ("unique_name", "UNIQUE(name)", "This name is already exist")
+    ]
+
     @api.onchange("mobile")
     def _onchange_mobile(self):
         self.ensure_one()

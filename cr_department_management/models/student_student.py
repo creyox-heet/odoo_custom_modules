@@ -6,6 +6,8 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields,api
 import datetime
 from dateutil.relativedelta import relativedelta
+from odoo.exceptions import UserError, ValidationError
+
 
 class StudentStudent(models.Model):
     _name = "student.student"
@@ -36,6 +38,7 @@ class StudentStudent(models.Model):
     cr_end_date = fields.Date(string="End Date")
     no_of_votes = fields.Integer(string="Number of Votes")
     active = fields.Boolean(string="Active",default="True")
+
 
     @api.onchange("mobile")
     def _onchange_mobile(self):
@@ -71,3 +74,9 @@ class StudentStudent(models.Model):
 
     def print_name(self):
         print("Heet Nagapara")
+
+    @api.constrains("cr_start_date","cr_end_date")
+    def check_start_is_before_end_date(self):
+        if self.cr_start_date and self.cr_end_date:
+            if self.cr_start_date > self.cr_end_date:
+                raise ValidationError("Start Date must be before End Date")
