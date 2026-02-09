@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="action_report_department_template" model="ir.actions.report">
+       <field name="name">Department Report</field>
+       <field name="model">department.department</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">cr_department_management.report_department</field>
+       <field name="report_file">cr_department_management.report_department</field>
+       <field name="print_report_name">'Department Report - %s' % (object.name)</field>       <field name="binding_model_id" ref="model_department_department"/>
+       <field name="binding_type">report</field>
+   </record>
+</odoo>

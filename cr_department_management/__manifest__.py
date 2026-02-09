@@ -13,6 +13,8 @@
     "depends": ["base","mail","sale"],
     "data": [
         "security/ir.model.access.csv",
+        "report/department_report.xml",
+        "report/ir_actions_report.xml",
         "data/ir_actions_server.xml",
         "data/ir_cron_data.xml",
         "data/ir_sequence.xml",

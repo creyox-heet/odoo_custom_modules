@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_department">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2>Department Report</h2>
+                        <br/>
+                        <h3 t-field="o.sequence_code"/>
+                        <p>
+                            <strong>Name:</strong> <span t-field="o.name"/><br/>
+                            <strong>Code:</strong> <span t-field="o.code"/>
+                        </p>
+                        <hr/>
+                        <table class="table">
+                            <thead>Student Details</thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Mobile</th>
+                                    <th>CR</th>
+                                </tr>
+                            <tbody>
+                                <t t-foreach="o.student_ids" t-as="student">
+                                    <tr>
+                                        <div class="row">
+                                            <div class="col-3"><td><span t-field="student.name"/></td></div>
+                                             <div class="col-3"><td><span t-field="student.age"/></td></div>
+                                            <div class="col-3"><td><span t-field="student.mobile"/></td></div>
+                                            <div class="col-3"><td><span t-field="student.is_cr"/></td></div>
+                                        </div>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
