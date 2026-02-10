@@ -30,6 +30,9 @@
     "demo":[
         "demo/demo_data.xml"
     ],
+    "post_init_hook":"_post_init_employee",
+    "pre_init_hook":"_check_sale_module_installed",
+    'uninstall_hook': '_uninstall_sale_module',
     "installable": True,
     "application": True,
 }
