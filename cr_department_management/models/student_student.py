@@ -80,3 +80,13 @@ class StudentStudent(models.Model):
         if self.cr_start_date and self.cr_end_date:
             if self.cr_start_date > self.cr_end_date:
                 raise ValidationError("Start Date must be before End Date")
+
+    def action_for_get_info_by_wizard(self):
+        return {
+            'name': "Send Mail",
+            'type': 'ir.actions.act_window',
+            'res_model': 'send.mail.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context':{"current_name":self.name,"email":self.email},
+        }

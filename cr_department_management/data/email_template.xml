@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <data>
+        <record id="mail_template_for_student" model="mail.template">
+            <field name="name">Email Template For Student</field>
+            <field name="model_id" ref="model_send_mail_wizard"/>
+            <field name="email_from">macromate8925@gmail.com</field>
+            <field name="email_to">{{object.email_to}}</field>
+            <field name="subject">{{object.subject}}</field>
+            <field name="body_html" type="html">
+                <div>
+                    <t t-esc="object.msg"/>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -36,6 +36,9 @@
     <field name="model">student.student</field>
     <field name="arch" type="xml">
         <form string="Student ">
+            <header>
+                <button name="action_for_get_info_by_wizard" type="object" string="Send Mail" class="oe_stat_button"/>
+            </header>
             <sheet>
                 <field name="image" widget="image"/>
                 <div>

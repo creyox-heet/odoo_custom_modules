@@ -5,7 +5,6 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <div class="oe_structure"/>
                         <h2>Department Report</h2>
                         <br/>
                         <h3 t-field="o.sequence_code"/>
@@ -15,7 +14,7 @@
                         </p>
                         <hr/>
                         <table class="table">
-                            <thead>Student Details</thead>
+                            <thead><h3>Student Details</h3></thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>Age</th>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_send_mail_wizard" model="ir.ui.view">
+        <field name="name">send.mail.wizard.form</field>
+        <field name="model">send.mail.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send Mail">
+                <sheet>
+                    <group>
+                        <field name="student_id"/>
+                        <field name="subject"/>
+                        <field name="msg"/>
+                    </group>
+                </sheet>
+                <footer>
+                  <button name="action_send_email" type="object" string="Send" class="oe_highlight"/>
+                  <button string="Cancel" class="oe_highlight" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_send_mail_wizard" model="ir.actions.act_window">
+        <field name="name"> Send Mail</field>
+        <field name="res_model">send.mail.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
