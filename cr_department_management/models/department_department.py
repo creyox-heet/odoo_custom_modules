@@ -65,3 +65,18 @@ class DepartmentDepartment(models.Model):
                 'type': 'success'
             }
         }
+
+    def action_all_user_notify(self):
+        users = self.env["res.partner"].search([("company_id",'=',1)])
+        print(users)
+        notifications = []
+        for user in users:
+            notifications.append(((self.env.cr.dbname,"res.partner",user.id),"simple_notification",{
+                'type': 'success',
+                'title': 'Stage Update',
+                'message': "testing of realtime notification",
+                'sticky': True,
+            }))
+        self.env["bus.bus"]._sendmany(notifications)
+
+
