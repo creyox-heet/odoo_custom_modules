@@ -53,3 +53,15 @@ class DepartmentDepartment(models.Model):
             'url': f'/report/excel_download/{self.id}',
             'target': 'new',  
         }
+
+    def action_display_notification(self):
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': "Display Notification",
+                'message': "get notify button is clicked...",
+                'sticky': True,
+                'type': 'success'
+            }
+        }
