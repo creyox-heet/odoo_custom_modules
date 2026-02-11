@@ -9,7 +9,7 @@
             <field name="subject">{{object.subject}}</field>
             <field name="body_html" type="html">
                 <div>
-                    <t t-esc="object.msg"/>
+                    <t t-out="object.msg"/>
                 </div>
             </field>
         </record>

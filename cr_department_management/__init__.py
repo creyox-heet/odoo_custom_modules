@@ -2,6 +2,7 @@
 # Part of Creyox Technologies.
 from . import models
 from . import wizard
+from . import controller
 from odoo.exceptions import ValidationError
 
 def _post_init_employee(env):

@@ -52,6 +52,10 @@
     <field name="model">department.department</field>
     <field name="arch" type="xml">
         <form string="Department">
+            <header>
+                <button name="action_download_xlsx" type="object" string="Generate Excel
+                    Report" class="oe_stat_button"/>
+            </header>
             <sheet>
                  <div name="button_box" position="inside">
                 <button class="oe_stat_button"

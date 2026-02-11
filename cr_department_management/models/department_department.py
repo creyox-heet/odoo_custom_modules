@@ -47,3 +47,9 @@ class DepartmentDepartment(models.Model):
             args = ['|',('name',operator,name), ('code', operator, name)]
         return self._search(args, limit=limit, access_rights_uid=name_get_uid,order=order)
 
+    def action_download_xlsx(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': f'/report/excel_download/{self.id}',
+            'target': 'new',  
+        }
