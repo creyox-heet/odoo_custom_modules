@@ -35,8 +35,8 @@
     <field name="name">student.student.form</field>
     <field name="model">student.student</field>
     <field name="arch" type="xml">
-        <form string="Student ">
-            <header>
+        <form string="Student">
+                <header groups="cr_department_management.group_manager">
                 <button name="action_for_get_info_by_wizard" type="object" string="Send Mail" class="oe_stat_button"/>
             </header>
             <sheet>

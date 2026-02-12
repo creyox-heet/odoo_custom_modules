@@ -11,6 +11,12 @@ class DepartmentDepartment(models.Model):
                                 copy=False, default=lambda self: self.env[
                                 'ir.sequence'].next_by_code('department.department'))
 
+    company_id = fields.Many2one(
+        'res.company',
+        string='Company',
+        required=True,
+        default=lambda self: self.env.company
+    )
     name = fields.Char(string="Name", required=True)
     code = fields.Char(string="Code",required=True)
     no_of_students = fields.Integer(string="Number of Students",compute="_compute_no_of_students",store=True)
@@ -78,5 +84,6 @@ class DepartmentDepartment(models.Model):
                 'sticky': True,
             }))
         self.env["bus.bus"]._sendmany(notifications)
+
 
 

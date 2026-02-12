@@ -22,5 +22,15 @@
     <!--    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
         <field name="comment">can do everything</field>
     </record>
+    <record id="rule_department_global_active_only" model="ir.rule">
+        <field name="name">Active only active department</field>
+        <field name="model_id" ref="model_department_department"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id','in', company_ids)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
 
 </odoo>
