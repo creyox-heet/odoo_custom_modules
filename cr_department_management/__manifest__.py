@@ -12,6 +12,7 @@
     "description": "CR Department Management",
     "depends": ["base","mail","sale"],
     "data": [
+        "security/security_data.xml",
         "security/ir.model.access.csv",
         "data/email_template.xml",
         "views/send_mail_wizard_view.xml",
