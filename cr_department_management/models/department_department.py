@@ -85,5 +85,6 @@ class DepartmentDepartment(models.Model):
             }))
         self.env["bus.bus"]._sendmany(notifications)
 
+        print(self.create_uid)
 
 
